@@ -15,8 +15,8 @@ plugins:
 ##### Site config - won't be loaded when using the theme, you should have something similar in your site #####
 
 #> metadata #
-baseurl: "/jekyll-theme-arsha"
-url: "https://mlh-fellowship.github.io"
+#baseurl: "/jekyll-theme-arsha"
+#url: "https://mlh-fellowship.github.io"
 
 name: Arsha
 title: Arsha Bootstrap Template
