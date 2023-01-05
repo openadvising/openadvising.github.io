@@ -231,7 +231,7 @@ title: Home
                 </div>
 
                 <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                    <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/1eiMc8_GPc1aOJEjITjgr0QOmsUwzPsAtRkzwK9V-tkE/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+                    <form name="gform" id="gform" action="#" method="post" role="form" class="php-email-form" enctype="text/plain" action="https://docs.google.com/forms/d/1eiMc8_GPc1aOJEjITjgr0QOmsUwzPsAtRkzwK9V-tkE/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="name">Your Name</label>
@@ -256,7 +256,7 @@ title: Home
                             <div class="sent-message">Your message has been sent. Thank you!</div>
                         </div>
                         <div class="text-center">
-                            <button disabled type="submit">Send Message</button>
+                            <button type="submit" value="Submit">Send Message</button>
                         </div>
                     </form>
                     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
