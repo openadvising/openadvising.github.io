@@ -231,11 +231,11 @@ title: Home
                 </div>
 
                 <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                <form name="gform" id="gform" role="form" class="php-email-form" enctype="text/plain" action="https://docs.google.com/forms/d/1eiMc8_GPc1aOJEjITjgr0QOmsUwzPsAtRkzwK9V-tkE/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+                <form name="gform" id="gform" role="form" class="php-email-form" enctype="text/plain" action="" target="hidden_iframe" onsubmit="submitted=true;">
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Your Name</label>
-                            <input type="text" class="form-control"  name="entry.2141411533" id="entry.2141411533" required>
+                            <input type="text" class="form-control"  name="entry.2141411533" id="formName" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Your Email</label>
@@ -264,5 +264,32 @@ title: Home
             </div>
         </div>
     </section><!-- End Contact Section -->
+<script>
+    const pieceA = 'https://docs.google.com/forms/d/e/1FAIpQLSfjFXBQaQrSj-aMv2Qj51PX4P788qXwsG8ND0CL8icThAi0bg/formResponse?&submit=Submit?usp=pp_url&';
+const pieceB = 'entry.2141411533='
 
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const nameInput = form.querySelector('#formName');
+  const name = nameInput.value;
+  
+  const url = `${pieceA}${pieceB}${name}`;
+  console.log(url);
+
+  var request = new Request(url, {
+    method: 'POST',
+    mode: 'no-cors',
+  });
+
+  fetch(request).then(function(response) {
+    console.log(response);
+  });
+
+});
+
+var request = new Request(url, {
+  method: 'POST',
+  mode: 'no-cors',
+});
+        </script>
 </main><!-- End #main -->
