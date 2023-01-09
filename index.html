@@ -287,7 +287,7 @@ form.addEventListener('submit', (e) => {
   const message = messageInput.value;
     
    
-  const url = `${pieceA}${pieceA2}${pieceB}${name}&${pieceC}${email}&${pieceD}${subject}&${pieceE}&${message}`;
+  const url = `${pieceA}${pieceA2}${pieceB}${name}&${pieceC}${email}&${pieceD}${subject}&${pieceE}${message}%0A`;
   console.log(url);
 
   var request = new Request(url, {
