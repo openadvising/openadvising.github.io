@@ -239,27 +239,26 @@ title: Home
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Your Email</label>
-                            <input type="email" class="form-control" name="entry.1779625812" id="entry.1779625812" required>
+                            <input type="email" class="form-control" name="entry.1779625812" id="formEmail" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="name">Subject</label>
-                        <input type="text" class="form-control" name="entry.954820388" id="entry.954820388" required>
+                        <input type="text" class="form-control" name="entry.954820388" id="formSubject" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Message</label>
-                        <textarea class="form-control" name="entry.452933911" id="entry.452933911" rows="10" required></textarea>
+                        <textarea class="form-control" name="entry.452933911" id="formMessage" rows="10" required></textarea>
                     </div>
                     <div class="my-3">
                         <div class="loading">Loading</div>
-                        <div class="error-message" style="display:none;"></div>
+                        <div class="error-message" style="display:none; visibility: hidden;"></div>
                         <div class="sent-message">Your message has been sent. Thank you!</div>
                     </div>
                     <div class="text-center">
                         <button type="submit" value="Submit">Send Message</button>
                     </div>
                 </form>
-                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
                 </div>
             </div>
         </div>
@@ -267,14 +266,27 @@ title: Home
 <script>
 const pieceA = 'https://docs.google.com/forms/d/e/1FAIpQLSfjFXBQaQrSj-aMv2Qj51PX4P788qXwsG8ND0CL8icThAi0bg/formResponse?&submit=Submit?usp=pp_url&';
 const pieceB = 'entry.2141411533='
+const pieceC = 'entry.1779625812='
+const pieceD = 'entry.954820388='
+const pieceE = 'entry.452933911='
 const form = document.querySelector('#gform');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const nameInput = form.querySelector('#formName');
   const name = nameInput.value;
-
-  const url = `${pieceA}${pieceB}${name}`;
+    
+  const emailInput = form.querySelector('#formEmail');
+  const email = emailInput.value;
+    
+  const subjectInput = form.querySelector('#formSubject');
+  const subject = subjectInput.value;
+    
+  const messageInput = form.querySelector('#formMessage');
+  const message = messageInput.value;
+    
+   
+  const url = `${pieceA}${pieceB}${name}&${pieceC}${email}&${pieceD}${subject}&${pieceE}&message`;
   console.log(url);
 
   var request = new Request(url, {
