@@ -264,7 +264,8 @@ title: Home
         </div>
     </section><!-- End Contact Section -->
 <script>
-const pieceA = 'https://docs.google.com/forms/d/e/1FAIpQLSfjFXBQaQrSj-aMv2Qj51PX4P788qXwsG8ND0CL8icThAi0bg/formResponse?&submit=Submit?usp=pp_url&';
+const pieceA = 'https://docs.google.com/forms/d/e/1FAIpQLSfjFXBQaQrSj-aM';
+const pieceA2= 'v2Qj51PX4P788qXwsG8ND0CL8icThAi0bg/formResponse?&submit=Submit?usp=pp_url&';
 const pieceB = 'entry.2141411533='
 const pieceC = 'entry.1779625812='
 const pieceD = 'entry.954820388='
@@ -286,7 +287,7 @@ form.addEventListener('submit', (e) => {
   const message = messageInput.value;
     
    
-  const url = `${pieceA}${pieceB}${name}&${pieceC}${email}&${pieceD}${subject}&${pieceE}&message`;
+  const url = `${pieceA}${pieceA2}${pieceB}${name}&${pieceC}${email}&${pieceD}${subject}&${pieceE}&${message}`;
   console.log(url);
 
   var request = new Request(url, {
