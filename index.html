@@ -252,7 +252,7 @@ title: Home
                     </div>
                     <div class="my-3">
                         <div class="loading">Loading</div>
-                        <div class="error-message"></div>
+                        <div class="error-message" style="display:none;"></div>
                         <div class="sent-message">Your message has been sent. Thank you!</div>
                     </div>
                     <div class="text-center">
@@ -265,14 +265,15 @@ title: Home
         </div>
     </section><!-- End Contact Section -->
 <script>
-    const pieceA = 'https://docs.google.com/forms/d/e/1FAIpQLSfjFXBQaQrSj-aMv2Qj51PX4P788qXwsG8ND0CL8icThAi0bg/formResponse?&submit=Submit?usp=pp_url&';
+const pieceA = 'https://docs.google.com/forms/d/e/1FAIpQLSfjFXBQaQrSj-aMv2Qj51PX4P788qXwsG8ND0CL8icThAi0bg/formResponse?&submit=Submit?usp=pp_url&';
 const pieceB = 'entry.2141411533='
+const form = document.querySelector('#gform');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const nameInput = form.querySelector('#formName');
   const name = nameInput.value;
-  
+
   const url = `${pieceA}${pieceB}${name}`;
   console.log(url);
 
@@ -285,11 +286,6 @@ form.addEventListener('submit', (e) => {
     console.log(response);
   });
 
-});
-
-var request = new Request(url, {
-  method: 'POST',
-  mode: 'no-cors',
 });
         </script>
 </main><!-- End #main -->
