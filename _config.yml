@@ -23,10 +23,7 @@ title: Open Advisory Services
 email: hello@openadvising.com
 # logo: assets/img/logo.png # you can specify a logo for your site
 description: >- # this means to ignore newlines until "X:"
-  Arsha is a clean and modern business Bootstrap template designed specifically for startup, apps and IT services. 
-  You will be able to showcase your content on mobile devices such as smartphones, tablets and all types of devices. 
-  Arsha’s design is driven by minimalist and unique sections. 
-  With this template pixel-perfect layout and neat sectioning, it will help you create a professional-looking website for your business in no time.
+  Open Advisory Services provides fractional General Counsel services for small and medium tech companies.
 
 social_links:
   github: https://github.com/MLH-fellowship/jekyll-theme-arsha
