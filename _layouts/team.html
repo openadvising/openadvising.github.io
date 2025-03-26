@@ -1,0 +1,38 @@
+---
+layout: default
+title: Our Team
+---
+
+<section class="container py-5">
+  <h1 class="text-center mb-5">Meet Our Team</h1>
+  <div class="row">
+    {% for member in site.data.team %}
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card h-100 text-center border-0 shadow">
+        <img src="{{ member.image }}" class="card-img-top" alt="{{ member.name }}">
+        <div class="card-body">
+          <h5 class="card-title mb-0">{{ member.name }}</h5>
+          <p class="text-orange fw-bold small">{{ member.title }}</p>
+          <p class="text-muted small">Before Ashbury: {{ member.experience }}</p>
+          <a href="{{ member.profile_url }}" class="btn btn-outline-secondary btn-sm w-100 mb-2">Get to Know {{ member.first_name }}</a>
+          <a href="{{ member.schedule_url }}" class="btn btn-orange btn-sm w-100">Schedule a Call</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+.btn-orange {
+  background-color: #f46036;
+  color: white;
+}
+.btn-orange:hover {
+  background-color: #d94e2a;
+  color: white;
+}
+.text-orange {
+  color: #f46036;
+}
+</style>
