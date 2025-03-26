@@ -18,8 +18,8 @@ plugins:
 #baseurl: "/jekyll-theme-arsha"
 #url: "https://mlh-fellowship.github.io"
 
-name: Open Advisory Services
-title: Open Advisory Services
+name: Open Advising
+title: Open Advising
 email: hello@openadvising.com
 # logo: assets/img/logo.png # you can specify a logo for your site
 description: >- # this means to ignore newlines until "X:"
