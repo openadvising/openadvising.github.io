@@ -3,19 +3,19 @@ layout: default
 title: Our Team
 ---
 
-<!-- Page Padding Top -->
+<!-- Top Padding -->
 <div class="pt-5"></div>
 
 <!-- Hero Section -->
 <section class="container">
   <div class="hero-banner position-relative text-white text-left rounded overflow-hidden mb-5">
-    <img src="/assets/img/herobg.png" alt="Team Hero" class="hero-bg-img">
+    <img src="/assets/images/herobg.png" alt="Team Hero" class="hero-bg-img">
     <div class="hero-overlay"></div>
-    <div class="hero-content py-5 px-4 px-md-5">
-      <h1 class="display-4 text-orange fw-bold mb-4">We’re care about<br>what moves you.</h1>
+    <div class="hero-content px-4 px-md-5 py-5">
+      <h1 class="display-4 text-orange fw-bold mb-4">We’re entrepreneurs,<br>just like you.</h1>
       <p class="lead">
-        Open Advising Legal is run by lawyers who care.
-        We run your legal.
+        Open Advising is great.
+        We do great stuff.
       </p>
     </div>
   </div>
@@ -26,15 +26,15 @@ title: Our Team
   <div class="row justify-content-center" style="max-width: 1200px; margin: 0 auto;">
     {% for member in site.data.team %}
     <div class="col-md-6 col-lg-3 mb-4 d-flex align-items-stretch">
-      <div class="card h-100 text-center border-0 shadow">
-        <div class="team-img-wrapper mx-auto">
-          <img src="{{ member.image }}" class="card-img-top team-img" alt="{{ member.name }}">
+      <div class="card h-100 text-center border-0 shadow-sm">
+        <div class="card-img-top team-img-wrapper mx-auto">
+          <img src="{{ member.image }}" alt="{{ member.name }}" class="team-img">
         </div>
         <div class="card-body">
-          <h5 class="card-title mb-0">{{ member.name }}</h5>
-          <p class="text-orange fw-bold small">{{ member.title }}</p>
+          <h5 class="card-title mb-1">{{ member.name }}</h5>
+          <p class="fw-bold text-uppercase small mb-2">{{ member.title }}</p>
           {% if member.experience %}
-          <p class="text-muted small">Before Open Advising: {{ member.experience }}</p>
+          <p class="text-muted small mb-3">Before Open Advising: {{ member.experience }}</p>
           {% endif %}
           <a href="{{ member.profile_url }}" class="btn btn-outline-secondary btn-sm w-100 mb-2">Get to Know {{ member.first_name }}</a>
           <a href="{{ member.schedule_url }}" class="btn btn-orange btn-sm w-100">Schedule a Call</a>
@@ -46,12 +46,13 @@ title: Our Team
 </section>
 
 <style>
-/* Hero section */
+/* Hero Styling */
 .hero-banner {
   position: relative;
-  min-height: 450px;
+  height: auto;
+  min-height: 480px;
+  border-radius: 16px;
 }
-
 .hero-bg-img {
   position: absolute;
   top: 0;
@@ -61,16 +62,50 @@ title: Our Team
   object-fit: cover;
   z-index: 1;
 }
-
 .hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 2;
 }
-
 .hero-content {
-  position
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+}
+
+/* Team Card Styling */
+.team-img-wrapper {
+  width: 100%;
+  padding-top: 100%; /* makes it square */
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: #f9f9f9;
+}
+.team-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Buttons */
+.btn-orange {
+  background-color: #f46036;
+  color: white;
+}
+.btn-orange:hover {
+  background-color: #d94e2a;
+  color: white;
+}
+.text-orange {
+  color: #f46036;
+}
+</style>
