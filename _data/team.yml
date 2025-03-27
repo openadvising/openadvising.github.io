@@ -5,16 +5,18 @@
   image: /assets/img/team/max.jpeg
   profile_url: /team/max
 
-- name: Soutodeh Ahmadieh
-  first_name: Max
-  title: "COUNSEL"
-  experience: "Google; Square"
-  image: /assets/img/team/team-1.jpg
-  profile_url: /team/max
-
 - name: Megumi Yukie
-  first_name: Max
+  first_name: Megumi
   title: "COUNSEL"
-  experience: "Google; Square"
-  image: /assets/img/team/team-2.jpg
-  profile_url: /team/max
+  experience: "Facebook; Twitter"
+  image: /assets/img/team/megumi-park.jpeg
+  profile_url: /team/megumi
+
+
+- name: Soutodeh Ahmadieh
+  first_name: Soutodeh
+  title: "COUNSEL"
+  experience: "Hopin; Checkstep"
+  image: /assets/img/team/soutodeh-park.jpeg
+  profile_url: /team/soutodeh
+
