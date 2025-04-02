@@ -1,113 +1,164 @@
 ---
 layout: default
-title: Profile
+title: Max Sills
 ---
 
 {% assign member = site.data.team.max_sills %}
 
 <style>
-  .team-member {
-    font-family: 'Inter', sans-serif;
+  .team-wrapper {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: #333;
+    padding: 4rem 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
-  .dark-card {
-    background-color: #1f2e36;
-    color: #fff;
-    padding: 2rem;
+  .intro-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .intro-card {
+    background-color: #172A35;
+    color: white;
+    padding: 1.5rem 2rem;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    flex: 1 1 350px;
   }
 
-  .text-accent {
-    color: #f26522;
-    font-weight: bold;
+  .intro-card h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .intro-card .role {
+    color: #F26522;
     text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9rem;
     margin-bottom: 1rem;
   }
 
-  .btn-accent {
-    background-color: #f26522;
+  .intro-card p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-card .btn {
+    background-color: #F26522;
     color: white;
     border: none;
     padding: 0.5rem 1.25rem;
     border-radius: 6px;
     font-weight: 500;
     text-decoration: none;
-    display: inline-block;
   }
 
-  .btn-accent:hover {
-    background-color: #e05a1f;
-    color: white;
+  .intro-image {
+    flex: 1 1 350px;
+    text-align: center;
   }
 
-  .section-heading {
-    text-transform: uppercase;
+  .intro-image img {
+    border-radius: 12px;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .bio-text {
+    margin-top: 3rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #222;
+  }
+
+  .bottom-section {
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+
+  .bottom-section h5 {
     font-weight: bold;
-    color: #6c757d;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    color: #555;
     margin-bottom: 1rem;
   }
 
-  .checklist {
+  .bottom-section ul {
+    padding-left: 1.2rem;
     list-style: disc;
-    padding-left: 1.5rem;
+    margin-bottom: 0;
   }
 
-  .muted-text {
-    color: #888;
+  .bottom-section p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
   }
 
-  img.team-photo {
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  @media (max-width: 768px) {
+    .intro-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .intro-image {
+      text-align: left;
+    }
   }
 </style>
 
-<div class="team-member container py-5">
-  <div class="row align-items-center">
-    <div class="col-md-6 dark-card mb-4 mb-md-0">
-      <h2 class="text-uppercase">{{ member.name }}</h2>
-      <h6 class="text-accent">{{ member.role }}</h6>
+<div class="team-wrapper">
+  <div class="intro-section">
+    <div class="intro-card">
+      <h2>{{ member.name }}</h2>
+      <div class="role">{{ member.role }}</div>
       <p>{{ member.short_bio }}</p>
-      <a href="{{ member.cta_link }}" class="btn-accent mt-2">{{ member.cta_label }}</a>
+      <a href="{{ member.cta_link }}" class="btn">{{ member.cta_label }}</a>
     </div>
-    <div class="col-md-6">
-      <img src="{{ member.image }}" alt="{{ member.name }}" class="team-photo">
-    </div>
-  </div>
-
-  <div class="row mt-5">
-    <div class="col-lg-10">
-      <p class="lead muted-text">{{ member.bio | markdownify }}</p>
+    <div class="intro-image">
+      <img src="{{ member.image }}" alt="{{ member.name }}">
     </div>
   </div>
 
-  <div class="row mt-5">
+  <div class="bio-text">
+    {{ member.bio | markdownify }}
+  </div>
+
+  <div class="bottom-section">
     <div class="col-md-6">
-      <h5 class="section-heading">AT Open Advising</h5>
-      <ul class="checklist">
+      <h5>At Open Advising</h5>
+      <ul>
         {% for item in member.at_firm %}
         <li>{{ item }}</li>
         {% endfor %}
       </ul>
     </div>
     <div class="col-md-6">
-      <h5 class="section-heading">CREDENTIALS</h5>
-      <p><strong>BEFORE SILLS LEGAL</strong><br>
+      <h5>Credentials</h5>
+      <p><strong>Before Sills Legal</strong><br>
         {% for firm in member.credentials.previous_firms %}
           {{ firm }}<br>
         {% endfor %}
       </p>
-      <p><strong>EDUCATION</strong><br>
+      <p><strong>Education</strong><br>
         {% for school in member.credentials.education %}
           {{ school }}<br>
         {% endfor %}
       </p>
-      <p><strong>BAR ADMISSIONS</strong><br>
+      <p><strong>Bar Admissions</strong><br>
         {% for bar in member.credentials.bar_admissions %}
           {{ bar }}<br>
         {% endfor %}
