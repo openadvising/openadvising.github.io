@@ -1,5 +1,5 @@
 ---
 layout: profile
 title: Max Sills
-permalink: /team/Max
+permalink: /team/max
 ---
