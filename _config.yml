@@ -23,7 +23,7 @@ title: Open Advising
 email: hello@openadvising.com
 logo: assets/img/logo.svg 
 description: >- # this means to ignore newlines until "X:"
-  Open Advisory Services provides fractional General Counsel services for small and medium tech companies.
+  Open Advising provides fractional General Counsel services for tech startups.
 
 social_links:
   github: https://github.com/MLH-fellowship/jekyll-theme-arsha
