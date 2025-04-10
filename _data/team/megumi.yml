@@ -1,30 +1,30 @@
 name: Megumi Yukie
 role: Counsel
 short_bio: >
-  Megumi might describe herself as a technologist's lawyer—if he had any idea what that meant. He mostly just helps builders build.
-cta_label: Schedule a Call
+  Megumi is the rare lawyer who can solve almost anything — fast, clearly, and with zero drama. Trusted by founders and creatives alike, she brings deep wisdom and steady judgment to every problem.
+cta_label: Get in Touch
 cta_link: /contact
-image: /assets/img/team/megumi-park.jpeg
+image: /assets/img/team/megumi-park.jpg
 
 bio: |
-  Megumi is one of the most active open-source and startup lawyers in the country. 
+  Megumi is Associate General Counsel at Midjourney, where she handles a wide range of legal, product, and commercial issues for one of the most innovative AI companies in the world.
 
-  Megumi’s legal journey started at Google, where he specialized in open-source compliance and licensing, then continued at Square (now Block) as product counsel.
+  With a background in copyright, privacy, and First Amendment law, Megumi has spent over a decade at the intersection of technology, media, and regulation. Prior to Midjourney, she led government and business affairs at Pex, and held roles at the Electronic Frontier Foundation and Wikimedia Foundation.
 
-  Megumi created Open Advising to bring modern, product-focused legal advice to builders moving fast.
+  Known for her clarity, speed, and calm under pressure, Megumi is a trusted advisor to startups and creatives navigating high-stakes legal questions.
 
 at_firm:
-  - Advised a 
-  - D
-  - Negotiated open-source licensing terms with major VC firms
-  - Helped spin out an AI research lab into a venture-backed startup
+  - Guides legal strategy across product, commercial, and regulatory issues at Midjourney
+  - Builds working solutions to complex copyright and content challenges
+  - Trusted by executive teams to bring clarity to fast-moving, ambiguous situations
 
 credentials:
-  previous_firms:
-    - Google
-    - Block (Square)
+  previous_positions:
+    - Director of Government and Business Affairs, Pex
+    - Legal Fellow, Electronic Frontier Foundation
+    - Legal Intern, Wikimedia Foundation
   education:
-    - JD, Vanderbilt
-    - BA, Case Western
+    - J.D., UC Hastings College of the Law
+    - B.A., Psychology and Law & Society, UC San Diego
   bar_admissions:
     - California
