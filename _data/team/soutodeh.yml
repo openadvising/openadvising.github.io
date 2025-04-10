@@ -1,0 +1,30 @@
+name: Soutodeh Ahmadieh
+role: Counsel
+short_bio: >
+  Soutodeh might describe herself as a technologist's lawyer—if he had any idea what that meant. He mostly just helps builders build.
+cta_label: Schedule a Call
+cta_link: /contact
+image: /assets/img/team/soutodeh-park.jpeg
+
+bio: |
+  Soutodeh is one of the most active open-source and startup lawyers in the country. 
+
+  Soutodeh’s legal journey started at Google, where he specialized in open-source compliance and licensing, then continued at Square (now Block) as product counsel.
+
+  Soutodeh created Open Advising to bring modern, product-focused legal advice to builders moving fast.
+
+at_firm:
+  - Advised a 
+  - D
+  - Negotiated open-source licensing terms with major VC firms
+  - Helped spin out an AI research lab into a venture-backed startup
+
+credentials:
+  previous_firms:
+    - Google
+    - Block (Square)
+  education:
+    - JD, Vanderbilt
+    - BA, Case Western
+  bar_admissions:
+    - California
