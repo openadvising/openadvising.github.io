@@ -1,30 +1,33 @@
 name: Soutodeh Ahmadieh
 role: Counsel
 short_bio: >
-  Soutodeh might describe herself as a technologist's lawyer—if he had any idea what that meant. He mostly just helps builders build.
+  Soutodeh is a seasoned attorney specializing in privacy and trust & safety, dedicated to helping builders navigate complex legal landscapes with confidence.
 cta_label: Schedule a Call
 cta_link: /contact
 image: /assets/img/team/soutodeh-park.jpeg
 
 bio: |
-  Soutodeh is one of the most active open-source and startup lawyers in the country. 
+  With extensive experience in legal and trust & safety roles, Soutodeh has established herself as a trusted advisor in the realms of privacy and platform integrity. She has held positions at companies such as Facebook, Hopin, and Checkstep, focusing on developing and implementing policies that ensure user safety and compliance.
 
-  Soutodeh’s legal journey started at Google, where he specialized in open-source compliance and licensing, then continued at Square (now Block) as product counsel.
+  At Open Advising, Soutodeh leverages her deep expertise to provide modern, product-focused legal advice to fast-moving builders. Her commitment to privacy and trust & safety ensures that clients can innovate while maintaining compliance and user trust.
 
-  Soutodeh created Open Advising to bring modern, product-focused legal advice to builders moving fast.
+  Soutodeh is also multilingual, speaking Farsi, which enables her to engage with a diverse range of clients and stakeholders effectively.
 
 at_firm:
-  - Advised a 
-  - D
+  - Advised on complex privacy regulations and compliance strategies
+  - Developed trust & safety policies for emerging technologies
   - Negotiated open-source licensing terms with major VC firms
-  - Helped spin out an AI research lab into a venture-backed startup
+  - Assisted in spinning out an AI research lab into a venture-backed startup
 
 credentials:
   previous_firms:
-    - Google
-    - Block (Square)
+    - Facebook
+    - Hopin
+    - Checkstep
   education:
-    - JD, Vanderbilt
-    - BA, Case Western
+    - JD, Golden Gate University School of Law
+    - BA, San Jose State University
   bar_admissions:
     - California
+  languages:
+    - Farsi
