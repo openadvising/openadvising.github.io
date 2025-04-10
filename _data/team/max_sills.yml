@@ -1,30 +1,34 @@
 name: Max Sills
-role: Partner
+role: General Counsel
 short_bio: >
-  Max might describe himself as a technologist's lawyer—if he had any idea what that meant. He mostly just helps builders build.
+  Max is the lawyer startups call when things get complicated. He brings deep open-source expertise, sharp commercial instincts, and a builder’s mindset to help teams solve tough product and partnership challenges.
 cta_label: Schedule a Call
 cta_link: /contact
 image: /assets/img/team/max.jpeg
 
 bio: |
-  Max is one of the most active open-source and startup lawyers in the country. 
+  Max has extensive experience in legal and advisory roles, focusing on open-source compliance, intellectual property, and cryptocurrency. He began his legal career as a Law Clerk at the World Intellectual Property Organization and the U.S. Securities and Exchange Commission, concentrating on risk strategy and financial innovation.
 
-  Max’s legal journey started at Google, where he specialized in open-source compliance and licensing, then continued at Square (now Block) as product counsel.
+  At Google, Max managed a team responsible for open-source legal matters, corporate governance for open-source foundations, and standards strategy. He played a key role in structuring and negotiating commercial partnerships and led licensing diligence for acquisitions and divestitures.
 
-  He created Open Advising to bring modern, product-focused legal advice to builders moving fast.
+  Following his tenure at Google, Max served as a Software Engineer and Attorney at Leap Motion, where he co-managed the patent portfolio, led the software licensing program, and contributed to software architecture and metrics teams.
+
+  Max then joined the Crypto Open Patent Alliance as General Manager, overseeing efforts to promote open patents in the crypto space. He also served as Counsel at Block, handling legal issues related to open partnerships and IP licensing.
+
+  Currently, Max is the General Counsel at Midjourney, an AI-powered artwork generator, and leads Open Advisory Services, a boutique firm specializing in fixed-fee, fractional general counsel services for small and medium tech companies. His work focuses on patent analytics, IP strategy, and open-source program development, particularly in AI and crypto sectors.
 
 at_firm:
-  - Advised a 
-  - D
-  - Negotiated open-source licensing terms with major VC firms
-  - Helped spin out an AI research lab into a venture-backed startup
+  - General Counsel for Midjourney
+  - Provided strategic legal counsel in AI and open source at Open Advising
 
 credentials:
   previous_firms:
     - Google
     - Block (Square)
+    - Crypto Open Patent Alliance
+    - Leap Motion
   education:
-    - JD, Vanderbilt
-    - BA, Case Western
+    - JD, Vanderbilt University Law School
+    - BA in Mathematics and Cognitive Science, Case Western Reserve University
   bar_admissions:
     - California
