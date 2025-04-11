@@ -1,24 +1,30 @@
+---
 name: Soutodeh Ahmadieh
 role: Counsel
 short_bio: >
-  Soutodeh is a seasoned attorney specializing in privacy and trust & safety, dedicated to helping builders navigate complex legal landscapes with confidence.
+  Soutodeh is a seasoned attorney specializing in privacy and trust &
+  safety, dedicated to helping builders navigate complex legal landscapes with
+  confidence.
 cta_label: Schedule a Call
 cta_link: /#contact
 image: /assets/img/team/soutodeh-park.jpeg
+bio: >
+  Soutodeh has extensive experience in legal and advisory roles, focusing on
+  privacy, compliance, trust & safety, and litigation. She began her legal
+  career as a Deputy District Attorney at the Santa Clara District Attorney’s
+  Office, where she handled complex litigation and legal strategy for criminal
+  cases.
 
-bio: |
-Soutodeh has extensive experience in legal and advisory roles, focusing on privacy, compliance, trust & safety, and litigation. She began her legal career as a Deputy District Attorney at the Santa Clara District Attorney’s Office, where she handled complex litigation and legal strategy for criminal cases.
 
-At Meta, Soutodeh led operational health programs within the Intellectual Property division, advising on regulatory compliance, intellectual property matters, and developing strategies to address abuse patterns. She also managed cross-functional teams to implement strategic legal initiatives and enhance operational efficiency.
+  At Meta, Soutodeh led operational health programs within the Intellectual Property division, advising on regulatory compliance, intellectual property matters, and developing strategies to address abuse patterns. She also managed cross-functional teams to implement strategic legal initiatives and enhance operational efficiency.
 
-At Open Advising, Soutodeh provides product-focused legal counsel to fast-moving tech companies. Her expertise in privacy, risk mitigation, and litigation ensures clients can innovate with confidence while managing regulatory and legal risks effectively.
 
+  At Open Advising, Soutodeh provides product-focused legal counsel to fast-moving tech companies. Her expertise in privacy, risk mitigation, and litigation ensures clients can innovate with confidence while managing regulatory and legal risks effectively.
 at_firm:
   - Advised on complex privacy regulations and compliance strategies
   - Developed trust & safety policies for emerging technologies
   - Negotiated open-source licensing terms with major VC firms
   - Assisted in spinning out an AI research lab into a venture-backed startup
-
 credentials:
   previous_firms:
     - Facebook
