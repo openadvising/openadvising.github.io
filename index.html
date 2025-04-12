@@ -253,9 +253,14 @@ title: Home
                             <input type="email" class="form-control" name="entry.1779625812" id="formEmail" required minlength="5">
                         </div>
                     </div>
+                    
                     <div class="form-group">
                         <label for="name">Company Name</label>
                         <input type="text" class="form-control" name="entry.954820388" id="formSubject" required minlength="5">
+                    </div>
+                    <div class="form-group">
+                    <label for="formFake">Referral Code (optional)</label>
+                    <input type="text" class="form-control" name="formFake" id="formFake">
                     </div>
                     <div class="form-group">
                         <label for="name">How can we help?</label>
@@ -284,7 +289,13 @@ const pieceE = 'entry.452933911='
 const form = document.querySelector('#gform');
 
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
+  e.preventDefault();  const honeypot = form.querySelector('#formFake').value.trim();
+  if (honeypot.length > 0) {
+    // Bot detected — fake success message but don't submit
+    form.innerHTML = "Thank you for your submission!";
+    return;
+  }
+
   const nameInput = form.querySelector('#formName');
   const name = nameInput.value;
     
@@ -297,8 +308,7 @@ form.addEventListener('submit', (e) => {
   const messageInput = form.querySelector('#formMessage');
   const message = messageInput.value;
     
-   
-  const url = `${pieceA}${pieceA2}${pieceB}${name}&${pieceC}${email}&${pieceD}${subject}&${pieceE}${message}%0A`;
+  const url = `${pieceA}${pieceA2}${pieceB}${encodeURIComponent(name)}&${pieceC}${encodeURIComponent(email)}&${pieceD}${encodeURIComponent(subject)}&${pieceE}${encodeURIComponent(message)}%0A`;
   console.log(url);
 
   var request = new Request(url, {
@@ -309,9 +319,8 @@ form.addEventListener('submit', (e) => {
   fetch(request).then(function(response) {
     console.log(response);
   });
-    
-  document.getElementById("gform").innerHTML = "Thank you for your submission!";
 
+  form.innerHTML = "Thank you for your submission!";
 });
-        </script>
+</script>
 </main><!-- End #main -->
