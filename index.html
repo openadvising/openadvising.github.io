@@ -13,7 +13,7 @@ title: Home
                 <h2 style="color: black !important;">We're top corporate lawyers who represent the most important AI and Open Source companies.</h2> 
                 <h2 style="color: blue !important;"> Let seasoned experts handle it so you can run your business. We take care of all your privacy, IP, contracts, and employment issues.</h2>
                 <div class="d-flex justify-content-center justify-content-lg-start">
-                    <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                    <a href="#about" class="btn scrollto">Get Started</a>
                 </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -190,8 +190,12 @@ title: Home
       font-weight: 500;
       text-decoration: none;
     }
-    .btn {
-      background-color: #209dd8;
+    .btn:hover {
+     background-color: #209dd8; /* darker blue */
+   }
+    .btn:focus {
+     outline: none;
+     box-shadow: 0 0 0 3px rgba(0,123,255,0.5); /*      subtle glow */
     }
     .pricing .img-fluid .pricing {
       border-radius: 6px;
