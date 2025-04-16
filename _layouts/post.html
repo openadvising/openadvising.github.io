@@ -117,82 +117,69 @@ layout: default
   });
 </script>
 
-<main class="container">
+<main class="container-fluid px-0">
   <!-- Hero Banner -->
   <section class="hero-banner">
-     <div class="row justify-content-center">
-     <div class="col-xl-10">
-     <div class="normal px-4 px-xl-5"">
-    <div class="row">
-      <div class="col-md-5">
-        <img src="/assets/img/blog-hero.png" alt="Hero Image" class="hero-image">
-      </div>
-      <div class="col-md-7">
-        <h1 class="display-4 fw-semibold">{{ page.title }}</h1>
-        <p class="lead text-muted mb-2">Published: {{ page.date | date: "%B %d, %Y" }}</p>
-        <p class="text-muted">Estimated read time: {{ page.read_time }}</p>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-5">
+          <img src="/assets/img/blog-hero.png" alt="Hero Image" class="hero-image">
+        </div>
+        <div class="col-md-7">
+          <h1 class="display-4 fw-semibold">{{ page.title }}</h1>
+          <p class="lead text-muted mb-2">Published: {{ page.date | date: "%B %d, %Y" }}</p>
+          <p class="text-muted">Estimated read time: {{ page.read_time }}</p>
+        </div>
       </div>
     </div>
-     </div>
-     </div>
-     </div>
   </section>
 
-  <div class="row">
-     <div class="row justify-content-center">
-     <div class="col-xl-10">
-     <div class="normal px-4 px-xl-5"">
-    <!-- Sidebar -->
-    <aside class="col-lg-3 mb-5 toc-sidebar">
-      <div class="dotted-rule"></div>
-      <h5>Contents</h5>
-      <ul class="small">
-        {% assign replaced_content = content | markdownify %}
-        {% assign headings = replaced_content | split: '<h' %}
-        {% for h in headings %}
-          {% if h contains '</h1>' %}
-            {% assign fragment = h | split: '</h1>' | first %}
-            {% assign clean = fragment | remove_first: '1>' | strip_html | strip %}
-            <li><a href="#{{ clean | slugify }}">{{ clean }}</a></li>
-          {% elsif h contains '</h2>' %}
-            {% assign fragment = h | split: '</h2>' | first %}
-            {% assign clean = fragment | remove_first: '2>' | strip_html | strip %}
-            <li class="ms-3"><a href="#{{ clean | slugify }}">{{ clean }}</a></li>
-          {% elsif h contains '</h3>' %}
-            {% assign fragment = h | split: '</h3>' | first %}
-            {% assign clean = fragment | remove_first: '3>' | strip_html | strip %}
-            <li class="ms-4"><a href="#{{ clean | slugify }}">{{ clean }}</a></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+  <!-- Content & TOC -->
+  <section class="container pb-5">
+    <div class="row">
+      <!-- Sidebar -->
+      <aside class="col-lg-3 mb-5 toc-sidebar">
+        <div class="dotted-rule"></div>
+        <h5>Contents</h5>
+        <ul class="small">
+          {% assign rendered_content = content | markdownify %}
+          {% assign headings = rendered_content | split: '<h' %}
+          {% for h in headings %}
+            {% if h contains '</h1>' or h contains '</h2>' or h contains '</h3>' %}
+              {% assign level = h | slice: 0, 1 %}
+              {% assign raw_text = h | split: '>' | last | split: '</' | first %}
+              {% assign indent = '' %}
+              {% if level == '2' %}{% assign indent = 'ms-3' %}{% endif %}
+              {% if level == '3' %}{% assign indent = 'ms-4' %}{% endif %}
+              <li class="{{ indent }}"><a href="#{{ raw_text | slugify }}">{{ raw_text }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        <div class="toc-footer-cta">
+          <i>→</i>
+          <span>Full report available: <strong>Start reading now for free</strong></span>
+        </div>
+        <div class="dotted-rule"></div>
+      </aside>
 
-      <div class="toc-footer-cta">
-        <i>→</i>
-        <span>Full report available: <strong>Start reading now for free</strong></span>
+      <!-- Main Article -->
+      <div class="col-lg-9">
+        <article class="blog-article">
+          {% capture replaced_content %}
+            {{ content | markdownify }}
+          {% endcapture %}
+
+          {% assign replaced_content = replaced_content
+            | replace: '<h1', '<h1 id="'
+            | replace: '</h1>', '</h1>'
+            | replace: '<h2', '<h2 id="'
+            | replace: '</h2>', '</h2>'
+            | replace: '<h3', '<h3 id="'
+            | replace: '</h3>', '</h3>' %}
+
+          {{ replaced_content }}
+        </article>
       </div>
-      <div class="dotted-rule"></div>
-    </aside>
-
-    <!-- Content -->
-    <div class="col-lg-9">
-      <article class="blog-article">
-        {% capture replaced_content %}
-          {{ content | markdownify }}
-        {% endcapture %}
-
-        {% assign replaced_content = replaced_content
-          | replace: '<h1', '<h1 id="'
-          | replace: '</h1>', '</h1>'
-          | replace: '<h2', '<h2 id="'
-          | replace: '</h2>', '</h2>'
-          | replace: '<h3', '<h3 id="'
-          | replace: '</h3>', '</h3>' %}
-
-        {{ replaced_content }}
-      </article>
     </div>
-  </div>
-                               </div>
-                               </div>
-                               </div>
+  </section>
 </main>
