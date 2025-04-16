@@ -2,56 +2,86 @@
 layout: default
 ---
 
-  <style>
-    .blog-article h1, .blog-article h2 {
-      scroll-margin-top: 100px;
-    }
 
+  <style>
     .toc-sidebar {
       position: sticky;
       top: 100px;
       max-height: calc(100vh - 140px);
       overflow-y: auto;
-      padding-right: 1rem;
+      font-size: 1rem;
+    }
+
+    .toc-sidebar h5 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
     }
 
     .toc-sidebar ul {
       padding-left: 0;
       list-style: none;
+      margin-bottom: 2rem;
     }
 
-    .toc-sidebar li a {
+    .toc-sidebar li {
+      margin-bottom: 0.5rem;
+    }
+
+    .toc-sidebar a {
       text-decoration: none;
-      color: #0d6efd;
+      color: #000;
     }
 
-    .toc-sidebar li a:hover {
+    .toc-sidebar a:hover {
       text-decoration: underline;
     }
-  </style>
-</head>
-<body>
 
-  {% include header.html %}
+    .dotted-rule {
+      border-top: 3px dotted #ccc;
+      margin: 2rem 0;
+    }
+
+    .blog-article h1,
+    .blog-article h2 {
+      scroll-margin-top: 120px;
+    }
+
+    .toc-footer-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .toc-footer-cta i {
+      background-color: #003cff;
+      color: white;
+      border-radius: 50%;
+      padding: 0.4rem 0.55rem;
+      font-style: normal;
+      display: inline-block;
+      font-weight: bold;
+    }
+  </style>
 
   <main class="container-fluid px-4 px-xl-5 py-5">
-    <!-- Title -->
     <div class="row mb-5">
       <div class="col-md-6">
         <h1 class="display-4">{{ page.title }}</h1>
       </div>
       <div class="col-md-6 text-md-end text-muted">
-        <p class="mb-1">Author: {{ page.author }}</p>
         <p class="mb-1">Published: {{ page.date | date: "%B %d, %Y" }}</p>
         <p class="mb-0">Read time: {{ page.read_time }}</p>
       </div>
     </div>
 
-    <!-- Body -->
     <div class="row">
       <!-- Sidebar -->
-      <div class="col-lg-3 mb-4 toc-sidebar">
-        <h5 class="text-uppercase">Contents</h5>
+      <aside class="col-lg-3 mb-5 toc-sidebar">
+        <div class="dotted-rule"></div>
+        <h5>Contents</h5>
         <ul class="small">
           {% assign toc_html = content | markdownify %}
           {% assign headings = toc_html | split: '<h' %}
@@ -65,9 +95,15 @@ layout: default
             {% endif %}
           {% endfor %}
         </ul>
-      </div>
 
-      <!-- Article -->
+        <div class="toc-footer-cta">
+          <i>→</i>
+          <span>Full report available: <strong>Start reading now for free</strong></span>
+        </div>
+        <div class="dotted-rule"></div>
+      </aside>
+
+      <!-- Content -->
       <div class="col-lg-9">
         <article class="blog-article">
           {% capture replaced_content %}
@@ -75,19 +111,13 @@ layout: default
           {% endcapture %}
 
           {% assign replaced_content = replaced_content
-            | replace: '<h1', '<h1 id="' 
+            | replace: '<h1', '<h1 id="'
             | replace: '</h1>', '</h1>'
-            | replace: '<h2', '<h2 id="' 
-            | replace: '</h2>', '</h2>' 
-          %}
+            | replace: '<h2', '<h2 id="'
+            | replace: '</h2>', '</h2>' %}
 
           {{ replaced_content }}
         </article>
       </div>
     </div>
   </main>
-
-  {% include footer.html %}
-
-</body>
-</html>
