@@ -85,16 +85,17 @@ layout: default
       <h5>Contents</h5>
       <ul class="small">
         {% assign replaced_content = content | markdownify %}
-        {% assign headings = replaced_content | split: '<h' %}
-        {% for h in headings %}
-          {% if h contains '</h1>' %}
-            {% assign fragment = h | split: '</h1>' | first %}
-            {% assign clean = fragment | remove_first: '1>' | strip_html | strip %}
-            <li><a href="#{{ clean | slugify }}">{{ clean }}</a></li>
-          {% elsif h contains '</h2>' %}
-            {% assign fragment = h | split: '</h2>' | first %}
-            {% assign clean = fragment | remove_first: '2>' | strip_html | strip %}
-            <li class="ms-3"><a href="#{{ clean | slugify }}">{{ clean }}</a></li>
+        {% assign matches = replaced_content | split: '</h' %}
+      
+        {% for match in matches %}
+          {% if match contains '<h1' %}
+            {% assign fragment = match | split: '<h1' | last %}
+            {% assign heading_text = fragment | strip_html | strip %}
+            <li><a href="#{{ heading_text | slugify }}">{{ heading_text }}</a></li>
+          {% elsif match contains '<h2' %}
+            {% assign fragment = match | split: '<h2' | last %}
+            {% assign heading_text = fragment | strip_html | strip %}
+            <li class="ms-3"><a href="#{{ heading_text | slugify }}">{{ heading_text }}</a></li>
           {% endif %}
         {% endfor %}
       </ul>
