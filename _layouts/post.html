@@ -84,17 +84,17 @@ layout: default
       <div class="dotted-rule"></div>
       <h5>Contents</h5>
       <ul class="small">
-        {% assign toc_html = content | markdownify %}
-        {% assign headings = toc_html | split: '<h' %}
+        {% assign replaced_content = content | markdownify %}
+        {% assign headings = replaced_content | split: '<h' %}
         {% for h in headings %}
           {% if h contains '</h1>' %}
-            {% assign raw = h | split: '</h1>' | first %}
-            {% assign title = raw | remove_first: '1>' | strip_html | strip %}
-            <li><a href="#{{ title | slugify }}">{{ title }}</a></li>
+            {% assign fragment = h | split: '</h1>' | first %}
+            {% assign clean = fragment | remove_first: '1>' | strip_html | strip %}
+            <li><a href="#{{ clean | slugify }}">{{ clean }}</a></li>
           {% elsif h contains '</h2>' %}
-            {% assign raw = h | split: '</h2>' | first %}
-            {% assign subtitle = raw | remove_first: '2>' | strip_html | strip %}
-            <li class="ms-3"><a href="#{{ subtitle | slugify }}">{{ subtitle }}</a></li>
+            {% assign fragment = h | split: '</h2>' | first %}
+            {% assign clean = fragment | remove_first: '2>' | strip_html | strip %}
+            <li class="ms-3"><a href="#{{ clean | slugify }}">{{ clean }}</a></li>
           {% endif %}
         {% endfor %}
       </ul>
