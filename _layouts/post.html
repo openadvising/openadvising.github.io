@@ -34,6 +34,11 @@ layout: default
     color: #000;
   }
 
+  .toc-sidebar a.active {
+    font-weight: 600;
+    color: #003cff;
+  }
+
   .toc-sidebar a:hover {
     text-decoration: underline;
   }
@@ -44,7 +49,8 @@ layout: default
   }
 
   .blog-article h1,
-  .blog-article h2 {
+  .blog-article h2,
+  .blog-article h3 {
     scroll-margin-top: 120px;
   }
 
@@ -65,20 +71,66 @@ layout: default
     display: inline-block;
     font-weight: bold;
   }
+
+  .hero-banner {
+    background-color: #f5f7ff;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 4rem;
+  }
+
+  .hero-banner .row {
+    align-items: center;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 </style>
 
-<main class="container py-5">
-      <div class="row justify-content-center">
-        <div class="col-xl-10 px-4 px-xl-5">
-  <div class="row mb-5">
-    <div class="col-md-6">
-      <h1 class="display-4 fw-semibold">{{ page.title }}</h1>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          const id = entry.target.getAttribute("id");
+          if (id) {
+            const link = document.querySelector('.toc-sidebar a[href="#' + id + '"]');
+            if (entry.isIntersecting) {
+              document.querySelectorAll(".toc-sidebar a").forEach(el => el.classList.remove("active"));
+              if (link) link.classList.add("active");
+            }
+          }
+        });
+      },
+      {
+        rootMargin: "-50% 0px -40% 0px",
+        threshold: 0.1
+      }
+    );
+
+    document.querySelectorAll(".blog-article h1, .blog-article h2, .blog-article h3").forEach((section) => {
+      if (section.id) observer.observe(section);
+    });
+  });
+</script>
+
+<main class="container px-4 px-xl-5 py-5">
+  <!-- Hero Banner -->
+  <section class="hero-banner py-5 px-4">
+    <div class="row">
+      <div class="col-md-5">
+        <img src="/assets/img/blog-hero.png" alt="Hero Image" class="hero-image">
+      </div>
+      <div class="col-md-7">
+        <h1 class="display-4 fw-semibold">{{ page.title }}</h1>
+        <p class="lead text-muted mb-2">Published: {{ page.date | date: "%B %d, %Y" }}</p>
+        <p class="text-muted">Estimated read time: {{ page.read_time }}</p>
+      </div>
     </div>
-    <div class="col-md-6 text-md-end text-muted">
-      <p class="mb-1">Published: {{ page.date | date: "%B %d, %Y" }}</p>
-      <p class="mb-0">Read time: {{ page.read_time }}</p>
-    </div>
-  </div>
+  </section>
 
   <div class="row">
     <!-- Sidebar -->
@@ -87,16 +139,20 @@ layout: default
       <h5>Contents</h5>
       <ul class="small">
         {% assign replaced_content = content | markdownify %}
-      
-        {% assign matches = replaced_content | split: '</h' %}
-      
-        {% for match in matches %}
-          {% if match contains '<h1' %}
-            {% assign heading = match | split: '>' | last | strip %}
-            <li><a href="#{{ heading | slugify }}">{{ heading }}</a></li>
-          {% elsif match contains '<h2' %}
-            {% assign heading = match | split: '>' | last | strip %}
-            <li class="ms-3"><a href="#{{ heading | slugify }}">{{ heading }}</a></li>
+        {% assign headings = replaced_content | split: '<h' %}
+        {% for h in headings %}
+          {% if h contains '</h1>' %}
+            {% assign fragment = h | split: '</h1>' | first %}
+            {% assign clean = fragment | remove_first: '1>' | strip_html | strip %}
+            <li><a href="#{{ clean | slugify }}">{{ clean }}</a></li>
+          {% elsif h contains '</h2>' %}
+            {% assign fragment = h | split: '</h2>' | first %}
+            {% assign clean = fragment | remove_first: '2>' | strip_html | strip %}
+            <li class="ms-3"><a href="#{{ clean | slugify }}">{{ clean }}</a></li>
+          {% elsif h contains '</h3>' %}
+            {% assign fragment = h | split: '</h3>' | first %}
+            {% assign clean = fragment | remove_first: '3>' | strip_html | strip %}
+            <li class="ms-4"><a href="#{{ clean | slugify }}">{{ clean }}</a></li>
           {% endif %}
         {% endfor %}
       </ul>
@@ -119,7 +175,9 @@ layout: default
           | replace: '<h1', '<h1 id="'
           | replace: '</h1>', '</h1>'
           | replace: '<h2', '<h2 id="'
-          | replace: '</h2>', '</h2>' %}
+          | replace: '</h2>', '</h2>'
+          | replace: '<h3', '<h3 id="'
+          | replace: '</h3>', '</h3>' %}
 
         {{ replaced_content }}
       </article>
