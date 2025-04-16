@@ -10,6 +10,9 @@ layout: default
       max-height: calc(100vh - 140px);
       overflow-y: auto;
       font-size: 1rem;
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 0.25rem;
     }
 
     .toc-sidebar h5 {
@@ -87,10 +90,12 @@ layout: default
           {% assign headings = toc_html | split: '<h' %}
           {% for h in headings %}
             {% if h contains '</h1>' %}
-              {% assign title = h | split: '</h1>' | first | remove: '1>' %}
+              {% assign raw = h | split: '</h1>' | first %}
+              {% assign title = raw | remove_first: '1>' | strip_html | strip %}
               <li><a href="#{{ title | slugify }}">{{ title }}</a></li>
             {% elsif h contains '</h2>' %}
-              {% assign subtitle = h | split: '</h2>' | first | remove: '2>' %}
+              {% assign raw = h | split: '</h2>' | first %}
+              {% assign subtitle = raw | remove_first: '2>' | strip_html | strip %}
               <li class="ms-3"><a href="#{{ subtitle | slugify }}">{{ subtitle }}</a></li>
             {% endif %}
           {% endfor %}
