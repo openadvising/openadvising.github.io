@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <style>
   .toc-sidebar {
     position: sticky;
@@ -137,13 +136,12 @@ layout: default
   <!-- Content & TOC -->
   <section class="container pb-5">
     <div class="row">
-      <!-- Sidebar -->
-      <aside class="col-lg-3 mb-5 toc-sidebar">
+      <!-- TOC Sidebar for Large Screens -->
+      <aside class="col-lg-3 mb-5 d-none d-lg-block toc-sidebar">
         <div class="dotted-rule"></div>
         <h5>Contents</h5>
         <ul class="small">
-          {% assign rendered_content = content | markdownify %}
-          {% assign headings = rendered_content | split: '<h' %}
+          {% assign headings = content | markdownify | split: '<h' %}
           {% for h in headings %}
             {% if h contains '</h1>' or h contains '</h2>' or h contains '</h3>' %}
               {% assign level = h | slice: 0, 1 %}
@@ -162,14 +160,35 @@ layout: default
         <div class="dotted-rule"></div>
       </aside>
 
+      <!-- TOC Collapsible for Small Screens -->
+      <div class="col-12 d-lg-none mb-3">
+        <button class="btn btn-outline-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#mobileToc">
+          Table of Contents
+        </button>
+        <div class="collapse mt-2" id="mobileToc">
+          <div class="toc-sidebar">
+            <ul class="small">
+              {% assign headings = content | markdownify | split: '<h' %}
+              {% for h in headings %}
+                {% if h contains '</h1>' or h contains '</h2>' or h contains '</h3>' %}
+                  {% assign level = h | slice: 0, 1 %}
+                  {% assign raw_text = h | split: '>' | last | split: '</' | first %}
+                  {% assign indent = '' %}
+                  {% if level == '2' %}{% assign indent = 'ms-3' %}{% endif %}
+                  {% if level == '3' %}{% assign indent = 'ms-4' %}{% endif %}
+                  <li class="{{ indent }}"><a href="#{{ raw_text | slugify }}">{{ raw_text }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <!-- Main Article -->
       <div class="col-lg-9">
         <article class="blog-article">
-          {% capture replaced_content %}
-            {{ content | markdownify }}
-          {% endcapture %}
-
-          {% assign replaced_content = replaced_content
+          {% assign content_html = content | markdownify %}
+          {% assign content_with_ids = content_html
             | replace: '<h1', '<h1 id="'
             | replace: '</h1>', '</h1>'
             | replace: '<h2', '<h2 id="'
@@ -177,9 +196,10 @@ layout: default
             | replace: '<h3', '<h3 id="'
             | replace: '</h3>', '</h3>' %}
 
-          {{ replaced_content }}
+          {{ content_with_ids }}
         </article>
       </div>
     </div>
   </section>
 </main>
+
