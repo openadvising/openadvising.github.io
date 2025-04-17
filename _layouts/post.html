@@ -143,13 +143,14 @@ layout: default
         <ul class="small">
           {% assign headings = content | markdownify | split: '<h' %}
           {% for h in headings %}
-            {% if h contains '</h1>' or h contains '</h2>' or h contains '</h3>' %}
+            {% assign fragment = h | split: '</h' | first %}
+            {% assign heading_text = fragment | split: '>' | last | strip %}
+            {% if heading_text != blank %}
               {% assign level = h | slice: 0, 1 %}
-              {% assign raw_text = h | split: '>' | last | split: '</' | first %}
               {% assign indent = '' %}
               {% if level == '2' %}{% assign indent = 'ms-3' %}{% endif %}
               {% if level == '3' %}{% assign indent = 'ms-4' %}{% endif %}
-              <li class="{{ indent }}"><a href="#{{ raw_text | slugify }}">{{ raw_text }}</a></li>
+              <li class="{{ indent }}"><a href="#{{ heading_text | slugify }}">{{ heading_text }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -170,13 +171,14 @@ layout: default
             <ul class="small">
               {% assign headings = content | markdownify | split: '<h' %}
               {% for h in headings %}
-                {% if h contains '</h1>' or h contains '</h2>' or h contains '</h3>' %}
+                {% assign fragment = h | split: '</h' | first %}
+                {% assign heading_text = fragment | split: '>' | last | strip %}
+                {% if heading_text != blank %}
                   {% assign level = h | slice: 0, 1 %}
-                  {% assign raw_text = h | split: '>' | last | split: '</' | first %}
                   {% assign indent = '' %}
                   {% if level == '2' %}{% assign indent = 'ms-3' %}{% endif %}
                   {% if level == '3' %}{% assign indent = 'ms-4' %}{% endif %}
-                  <li class="{{ indent }}"><a href="#{{ raw_text | slugify }}">{{ raw_text }}</a></li>
+                  <li class="{{ indent }}"><a href="#{{ heading_text | slugify }}">{{ heading_text }}</a></li>
                 {% endif %}
               {% endfor %}
             </ul>
@@ -202,4 +204,3 @@ layout: default
     </div>
   </section>
 </main>
-
