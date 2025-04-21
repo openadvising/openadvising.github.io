@@ -320,6 +320,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();  const honeypot = form.querySelector('#formFake').value.trim();
   if (honeypot.length > 0) {
     // Bot detected — fake success message but don't submit
+    e.stopImmediatePropagation();
     form.innerHTML = "Thank you for your submission!";
     return;
   }
