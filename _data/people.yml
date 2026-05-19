@@ -20,3 +20,11 @@
   image: /assets/img/team/soutodeh-park.jpeg
   profile_url: /team/soutodeh
 
+- name: Hailie Ingman
+  first_name: Hailie
+  title: "COUNSEL"
+  experience: "ZScaler, MinIO"
+  image: /assets/img/team/hailie.jpeg
+  profile_url: /team/hailie
+
+
