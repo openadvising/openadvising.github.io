@@ -1,30 +1,32 @@
 name: Hailie Ingman
 role: Counsel
 short_bio: >
-  Megumi can solve almost any commercial problem — fast, clearly, and correctly. Trusted by founders and creatives alike, she brings her deep wisdom and steady judgment to every problem.
+  Hailie is a trusted legal advisor to innovative technology and AI companies, providing practical, business-oriented legal guidance in fast-moving and high-growth environments. Hailie translates complex legal and privacy issues into clear, actionable guidance that enables innovation, compliance, and sustainable growth.
 cta_label: Get in Touch
 cta_link: /#contact
-image: /assets/img/team/megumi-park.jpeg
+image: /assets/img/team/Hailie.jpg
+
 
 bio: |
-  Megumi is Associate General Counsel at Midjourney, where she handles a wide range of legal, product, and commercial issues for one of the most innovative AI companies in the world.
+	Hailie currently serves as Associate General Counsel at Midjourney, where she advises on complex legal, product, intellectual property, public policy, and commercial matters at the forefront of artificial intelligence innovation. She also serves as Counsel at Open Advising, partnering with fast-growing AI companies on commercial strategy, emerging AI regulation, intellectual property, and privacy matters.
+	
+	Prior to Midjourney, Hailie was the first attorney at MinIO, where she built and scaled core legal operations while advising across product, privacy, and commercial matters. Earlier in her career, she served as commercial counsel at Zscaler, one of the world’s leading cybersecurity companies, where she negotiated high-impact commercial agreements, data center agreements, and helped shape the company’s AI policy framework. 
 
-  With a background in copyright, privacy, and First Amendment law, Megumi has spent over a decade at the intersection of technology, media, and regulation. Prior to Midjourney, she led government and business affairs at Pex, and held roles at the Electronic Frontier Foundation and Wikimedia Foundation.
-
-  Known for her clarity, speed, and calm under pressure, Megumi is a trusted advisor to startups and creatives navigating high-stakes legal questions.
 
 at_firm:
-  - Guides legal strategy across product, commercial, and regulatory issues at Midjourney
-  - Builds working solutions to complex copyright and content challenges
-  - Trusted by executive teams to bring clarity to fast-moving, ambiguous situations
+  - Advises clients on commercial strategy, privacy, product, and  technology-related legal matters
+  - Negotiates and structures complex commercial agreements in fast-paced, high-growth environments
+  - Partners with founders and leadership to deliver quick, clear, strategic guidance
+
 
 credentials:
   previous_positions:
-    - Director of Government and Business Affairs, Pex
-    - Legal Fellow, Electronic Frontier Foundation
-    - Legal Intern, Wikimedia Foundation
+    - Sr. Contracts Attorney, MinIO, Inc.
+    - Commercial Counsel, Zscaler, Inc.
+
+
   education:
-    - J.D., UC Hastings College of the Law
-    - B.A., Psychology and Law & Society, UC San Diego
+    - J.D., American University Washington College of Law
+    - B.A., Sociology and Law & Society, UC San Diego
   bar_admissions:
     - California
